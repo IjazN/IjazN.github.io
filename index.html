@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Homepage</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <a href="http://www.piha.co.nz/" target="_blank">
+        <img
+            src="Piha1.jpg"
+            alt="Piha"
+            class="panning-image"
+        />
+        </a>
+    </header>
+    <nav>
+        <a href="Storyboard 1.pdf" target="_blank">Storyboard 1</a>
+        <a href="Storyboard 2.pdf" target="_blank">Storyboard 2</a>
+        <a href="Storyboard 3.pdf" target="_blank">Storyboard 3</a>
+    </nav>
+    <content> <!-- custom -->
+        
+        <main>
+            <section>
+                <h2 class="underline">Piha Lodge Booking System</h2>
+                <div class="container-half card">
+                    <subtitle class="card-title">Input Forms</subtitle>
+                    <progress vale="25" max="100"></progress>
+                    <div id="form-page1" class="form-page" style="display: block">
+                    </div>
+                    <div> <!-- page title -->
+                        <h3>Terms and Conditions</h3>
+                    </div> 
+                    <div> <!-- page input fields -->
+                        <label for="booking">Booking Date:</label>
+                        <input type="date" id="booking" name="booking">
+                    </div>
+                    <div>
+                        <label for="terms-conditions">
+                            <input
+                                type="radio"
+                                id="terms-conditions"
+                                value="Accepted"
+                            />
+                            Terms and Conditions
+                            </label>
+                    </div>
+                    <div>
+                        <label for="lodge-agreement">
+                            <input
+                                type="radio"
+                                id="lodge-agreement"
+                                value="Accepted"
+                            />
+                            Piha Lodge Agreement
+                            </label>
+                    </div>
+                    <div> <!-- page nav buttons -->
+                        <button class="next" type="button" onclick="showPage(2)">
+                            Next Page
+                        </button>
+                    </div>
+                    <div id="form-page2" class="form-page" style="display: none">
+                    </div>
+                    <div> <!-- page title -->
+
+                    </div> 
+                    <div> <!-- page input fields -->
+                        <label for="room-type">
+                            Number of Beds
+                            <select>
+                                <option value="One Bed">One Bed</option>
+                                <option value="Two Beds">Two Beds</option>
+                                <option value="Three Beds">Three Beds</option>
+                                <option value="Four Beds">Four Beds</option>
+                                <option value="Five Beds">Five Beds</option>
+                    </div>
+                    <div> <!-- page nav buttons -->
+                        <button class="previous" type="button" onclick="showPage(1)">
+                            Previous Page
+                        </button>
+                        <button class="next" type="button" onclick="showPage(3)">
+                            Next Page
+                        </button>
+                    </div>
+                    <div id="form-page3" class="form-page" style="display: none">
+                    </div>
+                    <div> <!-- page title -->
+
+                    </div> 
+                    <div> <!-- page input fields -->
+                        
+                    </div>
+                    <div> <!-- page nav buttons -->
+                        <button class="previous" type="button" onclick="showPage(2)">
+                            Previous Page
+                        </button>
+                        <button class="next" type="button" onclick="showPage(4)">
+                            Next Page
+                        </button>
+                    </div>
+                    <div id="form-page4" class="form-page" style="display: none">
+                    </div>
+                    <div> <!-- page title -->
+
+                    </div> 
+                    <div> <!-- page input fields -->
+                        
+                    </div>
+                    <div> <!-- page nav buttons -->
+                        <button class="previous" type="button" onclick="showPage(3)">
+                            Previous Page
+                        </button>
+                        <button class="next" type="button" onclick="submitData()">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                <div class="container-half card">
+
+                </div>
+                <script src="formPaging.js"></script>
+            </section>
+        </main>
+        <aside>
+            aside
+        </aside>
+    </content>
+</body>
+</html>
