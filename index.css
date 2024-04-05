@@ -9,23 +9,102 @@ html {
 }
 
 header {
-    width: auto;
+    width: 1000px;
     height: 200px;
     margin-bottom: 10px;
     overflow: hidden;
 }
-.panning-image {
-    width: 200%;
-    animation: pan 20s linear infinite; 
+
+header img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    padding-left: 250px;
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    width: 1000px;
+    height: 200px;
+    transition: opacity 1s ease;
 }
 
-@keyframes pan {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+header img:nth-child(1) {
+    animation: panRight 5s linear;
+    animation-delay: 0s;
+    opacity: 1;
+}
+
+header img:nth-child(2) {
+    animation: zoomIn 10s forwards;
+    animation-delay: 14s;
+    opacity: 0;
+}
+
+.header-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: white;
+    font-size: 64px;
+    font-family: fantasy;
+    animation: fadeInText 2s 5s forwards, changeColour 4s 4 alternate, fadeOutText 2s 12s forwards;
+}
+
+.name-id {
+    position: absolute;
+    top: 30%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: white;
+    font-size: 18px;
+    animation: fadeInText 2s forwards;
+    animation-delay: 20s;
+}
+
+.second-text {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    opacity: 0;
+    color: green;
+    font-size: 64px;
+    font-family: fantasy;
+    animation: slideIn 5s forwards;
+    animation-delay: 15s;
+}
+
+@keyframes fadeInText {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOutText {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes changeColour {
+    0% { color: blue; }
+    50% { color: red;}
+    100% { color: white; font-size: 48px; font-family: monospace;}
+}
+
+@keyframes panRight {
+    0% { transform: translateX(-100%); opacity: 1; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes zoomIn {
+    0% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 nav {
@@ -34,13 +113,116 @@ nav {
     padding-top: 5px;
     margin: 16px 0px;
 }
+
 aside {
-    background-color: darksalmon;
+    background-color: rgb(255, 111, 0);
     width: 30%;
     display: block;
     float: left;
     height: 500px;
+    overflow: hidden;
+    position: relative;
 }
+
+.image-container {
+    width: 300%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    animation: slideImages 20s forwards;
+}
+
+.image-container img {
+    width: 33.33%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: black;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.5s ease; 
+}
+
+#text1 {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    opacity: 0;
+    color: black;
+    font-size: 18px;
+    animation: fadeInText 2s forwards;
+    animation-delay: 0s;
+}
+
+#text2 {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    opacity: 0;
+    color: black;
+    font-size: 18px;
+    animation: fadeInText 2s forwards;
+    animation-delay: 5s;
+}
+
+#text3{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: black;
+    font-size: 18px;
+    animation: fadeInText 3s forwards;
+    animation-delay: 10s;
+}
+
+#text4 {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: black;
+    font-size: 18px;
+    animation: fadeInText 3s forwards;
+    animation-delay: 18s;
+}
+
+@keyframes slideImages {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+aside a {
+    display: block;
+    height: 100%;
+    color: inherit;
+}
+
+.name-id2 {
+    position: absolute;
+    top: 90%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: black;
+    font-size: 18px;
+    animation: fadeInText 3s forwards;
+    animation-delay: 18s;
+}
+
 main {
     width: 70%;
     display: block;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Homepage</title>
+    <title>Piha Lodge</title>
 
     <link rel="stylesheet" href="index.css">
 </head>
@@ -13,11 +13,19 @@
 <body>
     <header>
         <a href="http://www.piha.co.nz/" target="_blank">
-        <img
-            src="Piha1.jpg"
-            alt="Piha"
-            class="panning-image"
-        />
+            <div>
+                <img src="Piha1.jpg" alt="Piha"/>
+                <img src="Piha2.jpg" alt="Piha"/>
+            </div>
+            <div class="header-text">
+                PIHA
+            </div>
+            <div class="name-id">
+                Ijaz Nalar 1566053
+            </div>
+            <div class="second-text">
+                SCENIC
+            </div>
         </a>
     </header>
     <nav>
@@ -25,14 +33,12 @@
         <a href="Storyboard 2.pdf" target="_blank">Storyboard 2</a>
         <a href="Storyboard 3.pdf" target="_blank">Storyboard 3</a>
     </nav>
-    <content> <!-- custom -->
-        
+    <content>
         <main>
             <section>
                 <h2 class="underline">Piha Lodge Booking System</h2>
                 <div class="container-half card">
-                    <subtitle class="card-title">Input Forms</subtitle>
-                    <progress vale="25" max="100"></progress>
+                    <progress value="25" max="100"></progress>
                     <div id="form-page1" class="form-page" style="display: block">
                     </div>
                     <div> <!-- page title -->
@@ -40,7 +46,7 @@
                     </div> 
                     <div> <!-- page input fields -->
                         <label for="booking">Booking Date:</label>
-                        <input type="date" id="booking" name="booking">
+                        <input type="date" id="booking-date" name="booking">
                     </div>
                     <div>
                         <label for="terms-conditions">
@@ -50,17 +56,15 @@
                                 value="Accepted"
                             />
                             Terms and Conditions
-                            </label>
-                    </div>
-                    <div>
+                        </label>
                         <label for="lodge-agreement">
                             <input
                                 type="radio"
                                 id="lodge-agreement"
                                 value="Accepted"
                             />
-                            Piha Lodge Agreement
-                            </label>
+                        Piha Lodge Agreement
+                        </label>   
                     </div>
                     <div> <!-- page nav buttons -->
                         <button class="next" type="button" onclick="showPage(2)">
@@ -70,17 +74,31 @@
                     <div id="form-page2" class="form-page" style="display: none">
                     </div>
                     <div> <!-- page title -->
-
+                        <h3>Number of Beds</h3>
                     </div> 
                     <div> <!-- page input fields -->
                         <label for="room-type">
-                            Number of Beds
+                            Number of Beds: 
                             <select>
                                 <option value="One Bed">One Bed</option>
                                 <option value="Two Beds">Two Beds</option>
                                 <option value="Three Beds">Three Beds</option>
                                 <option value="Four Beds">Four Beds</option>
                                 <option value="Five Beds">Five Beds</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="extra-pillows">
+                            Extra Pillows: 
+                            <input
+                                type="range" 
+                                id="extra-pillows" 
+                                name="pillows" 
+                                min="0" 
+                                max="5"
+                            />
+                        </label>
                     </div>
                     <div> <!-- page nav buttons -->
                         <button class="previous" type="button" onclick="showPage(1)">
@@ -93,10 +111,37 @@
                     <div id="form-page3" class="form-page" style="display: none">
                     </div>
                     <div> <!-- page title -->
-
+                        <h3>Number of People</h3>
                     </div> 
                     <div> <!-- page input fields -->
-                        
+                        <label for="adults">
+                            Number of Adults: 
+                            <input 
+                                type="number" 
+                                id="adults-number"
+                                name="adults"
+                                min="0"
+                            />
+                        </label>
+                        <label for="children">
+                            Number of Children: 
+                            <input 
+                                type="number" 
+                                id="children-number"
+                                name="children"
+                                min="0"
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="postcard-colour">
+                            Complimentary Postcard Colour: 
+                            <input 
+                                type="color" 
+                                id="postcard-colour"
+                                name="colour"
+                            />
+                        </label>
                     </div>
                     <div> <!-- page nav buttons -->
                         <button class="previous" type="button" onclick="showPage(2)">
@@ -109,10 +154,33 @@
                     <div id="form-page4" class="form-page" style="display: none">
                     </div>
                     <div> <!-- page title -->
-
+                        <h3>Personal Details</h3>
                     </div> 
                     <div> <!-- page input fields -->
-                        
+                        <label for="name" class="row">
+                            Name: 
+                            <input type="text" id="booking-name" />
+                        </label>
+                        <label for="email" class="row">
+                            Email: 
+                            <input type="text" id="booking-email" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="cutlery-required">
+                            <input 
+                                type="checkbox" 
+                                id="cutlery-required" 
+                            />
+                        Cutlery Required 
+                        </label>
+                        <label for="campfire-required">
+                            <input 
+                                type="checkbox" 
+                                id="campfire-required" 
+                            />
+                        Campfire Space Required 
+                        </label>
                     </div>
                     <div> <!-- page nav buttons -->
                         <button class="previous" type="button" onclick="showPage(3)">
@@ -124,13 +192,40 @@
                     </div>
                 </div>
                 <div class="container-half card">
-
+                    <subtitle class="card-title">Collected Data</subtitle>
+                    <table id="collected-data">
+                        <thead>
+                            <td>Booking</td>
+                            <td>Beds</td>
+                            <td>Pillows</td>
+                            <td>Adults</td>
+                            <td>Children</td>
+                            <td>Colour</td>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td>Cutlery</td>
+                            <td>Campfire</td>
+                        </thead>
+                    </table>
                 </div>
                 <script src="formPaging.js"></script>
             </section>
         </main>
         <aside>
-            aside
+            <a href="http://www.mitre10.co.nz/" target="_blank">
+                <div class="image-container">
+                    <img src="Mitre10_1.jpg" alt="Kitchen1">
+                    <div class="image-text" id="text1">Create your dream kitchen</div>
+                    <img src="Mitre10_2.jpg" alt="Kitchen2">
+                    <div class="image-text" id="text2">On trend</div>
+                    <img src="Mitre10_3.jpg" alt="Kitchen3">
+                    <div class="image-text" id="text3">And on budget</div>
+                    <div class="image-text "id="text4">Explore our kitchen</div>
+                </div>
+                <div class="name-id2">
+                    Ijaz Nalar 1566053
+                </div>
+            </a>
         </aside>
     </content>
 </body>
